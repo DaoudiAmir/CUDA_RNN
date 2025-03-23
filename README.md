@@ -14,6 +14,8 @@ The minimal GRU (MinGRU) simplifies the standard GRU by using the following equa
 - Candidate State: h_tilde = Linear_h(x_t)
 - Hidden State: h_t = (1 - z_t) ⊙ h_{t-1} + z_t ⊙ h_tilde
 
+![MinGRU Architecture](mingru_architecture.png)
+
 ### MinLSTM
 
 The minimal LSTM (MinLSTM) simplifies the standard LSTM with the following equations:
@@ -23,6 +25,8 @@ The minimal LSTM (MinLSTM) simplifies the standard LSTM with the following equat
 - Candidate State: h_tilde = Linear_h(x_t)
 - Gate Normalization: f'_t = f_t / (f_t + i_t), i'_t = i_t / (f_t + i_t)
 - Hidden State: h_t = f'_t ⊙ h_{t-1} + i'_t ⊙ h_tilde
+
+![MinLSTM Architecture](minlstm_architecture.png)
 
 ## Features
 
@@ -167,10 +171,16 @@ Our optimized CUDA implementations show significant performance improvements, es
 - **Medium sequences (128-256)**: GPU achieves 2.3-4.6x speedup
 - **Long sequences (512-1024)**: GPU achieves 4.2-6.3x speedup
 
+![MinGRU Execution Time](benchmark_results/mingru_execution_time.png)
+![MinGRU Speedup](benchmark_results/mingru_speedup.png)
+
 ### MinLSTM Performance Highlights
 - **Short sequences (8-16)**: CPU is faster due to transfer overhead
 - **Medium sequences (32-128)**: GPU performance approaches CPU (0.66-1.11x)
 - **Long sequences (256-1024)**: GPU achieves impressive 6.2-9.4x speedup
+
+![MinLSTM Execution Time](benchmark_results/minlstm_execution_time.png)
+![MinLSTM Speedup](benchmark_results/minlstm_speedup.png)
 
 For detailed benchmark results and analysis, see `cuda_optimization_results.md`.
 
