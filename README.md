@@ -199,4 +199,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Acknowledgments
 
-This implementation is based on the original C/CUDA project [minimal_rnn](https://github.com/original/minimal_rnn).
+This implementation is based on the original paper:
+
+Feng, L., Tung, F., Ahmed, M. O., Bengio, Y., & Hajimirsadeghi, H. (2024). Were RNNs All We Needed? arXiv preprint arXiv:2410.01201. https://arxiv.org/abs/2410.01201
+
+The paper introduces the minimal versions of LSTMs and GRUs (minLSTM and minGRU) that are fully parallelizable during training and achieve competitive performance compared to more complex models.
