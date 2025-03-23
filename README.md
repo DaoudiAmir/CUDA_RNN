@@ -1,6 +1,6 @@
 # Minimal RNN Python Implementation with CUDA Optimization
 
-This project provides Python implementations of minimal RNN models (MinGRU and MinLSTM) with highly optimized CPU and GPU (CUDA) versions. The implementation is based on the original C/CUDA project and aims to provide a more accessible interface while maintaining high performance.
+This project provides Python implementations of minimal RNN models (MinGRU and MinLSTM) with highly optimized CPU and GPU (CUDA) versions. The implementation aims to provide an accessible interface while maintaining high performance.
 
 ## Overview
 
@@ -199,8 +199,17 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Acknowledgments
 
-This implementation is based on the original paper:
+While this implementation draws inspiration from the groundbreaking research paper:
 
 Feng, L., Tung, F., Ahmed, M. O., Bengio, Y., & Hajimirsadeghi, H. (2024). Were RNNs All We Needed? arXiv preprint arXiv:2410.01201. https://arxiv.org/abs/2410.01201
 
-The paper introduces the minimal versions of LSTMs and GRUs (minLSTM and minGRU) that are fully parallelizable during training and achieve competitive performance compared to more complex models.
+Our work represents a significant departure from the original implementation. The paper's authors provided a PyTorch implementation, whereas our project offers a completely native implementation using Python with direct CUDA programming through Numba.
+
+Key contributions of our implementation include:
+- Native CUDA kernels that directly interact with the GPU, bypassing the overhead of deep learning frameworks
+- Custom memory management optimizations including pinned memory and shared memory usage
+- Adaptive algorithm selection based on sequence length that outperforms the original implementation for long sequences
+- Comprehensive benchmarking tools and performance analysis
+- Highly optimized parallel scan algorithms for processing long sequences efficiently
+
+This project demonstrates that low-level CUDA programming can achieve superior performance compared to framework-based implementations, especially for specialized models like MinGRU and MinLSTM where fine-grained control over memory and computation is critical.
